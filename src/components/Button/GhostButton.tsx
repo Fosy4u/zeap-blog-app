@@ -1,0 +1,46 @@
+import { FC } from "react";
+
+type Props = {
+  extraClass?: string;
+  size?: "sm" | "normal" | "lg";
+  inverted?: boolean;
+  noBorder?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactNode;
+};
+
+const GhostButton: FC<Props> = ({
+  onClick,
+  size,
+  extraClass,
+  noBorder = false,
+  inverted = true,
+  children,
+}) => {
+  let btnSize = "";
+  if (size === "sm") {
+    btnSize = "py-2 sm:py-1 px-5";
+  } else if (size === "lg") {
+    btnSize = "py-4 sm:py-3 px-7  text-xl";
+  } else {
+    btnSize = "py-3 sm:py-2 px-6";
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`bg-white text-center cursor-pointer text-xl sm:text-base tracking-widest text-gray500 ${
+        !noBorder && "border border-gray500"
+      } ${
+        inverted
+          ? "hover:bg-baseGreen hover:text-white ease-in duration-300"
+          : "hover:text-slate-400"
+      }  ${btnSize} ${extraClass}`}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default GhostButton;
