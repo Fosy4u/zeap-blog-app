@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const sliders = [
   {
-    id: 2,
+    id: 1,
     image: "/bg-img/curly_hair_girl-1.jpg",
     imageTablet: "/bg-img/curly_hair_girl-1-tablet.png",
     imageMobile: "/bg-img/curly_hair_girl-1_mobile.jpg",
@@ -23,11 +23,10 @@ const sliders = [
     link: "/tags?tag=All",
   },
   {
-    id: 3,
-    image: "/bg-img/monigote.jpg",
-    imageTablet: "/bg-img/monigote-tablet.png",
-    imageMobile: "/bg-img/monigote_mobile.jpg",
-
+    id: 2,
+    image: "/bg-img/Fashion-Man1.jpg",
+    imageTablet: "/bg-img/Fashion-Man1-tablet.jpg",
+    imageMobile: "/bg-img/curly_hair_white-1_mobile.jpg",
     titleUp: "Lets Talk About Fashion",
     titleDown: "The Latest Trends and Styles",
     rightText: false,
@@ -55,15 +54,17 @@ const Slideshow = () => {
             dynamicBullets: true,
           }}
           className="mySwiper "
-          style={{
-            "--swiper-navigation-color": "#133522",
-            "--swiper-pagination-color": "#133522",
-          } as React.CSSProperties}
+          style={
+            {
+              "--swiper-navigation-color": "#133522",
+              "--swiper-pagination-color": "#133522",
+            } as React.CSSProperties
+          }
         >
           {sliders.map((slider) => (
             <SwiperSlide key={slider.id}>
               <Link href={slider.link}>
-                <div className="hidden lg:block">
+                <div className="hidden lg:block h-[90vh]">
                   <Image
                     layout="responsive"
                     src={slider.image}
@@ -72,7 +73,7 @@ const Slideshow = () => {
                     alt={"some name"}
                   />
                 </div>
-                <div className="hidden sm:block lg:hidden">
+                <div className="hidden sm:block lg:hidden ">
                   <Image
                     layout="responsive"
                     src={slider.imageTablet}
@@ -106,7 +107,7 @@ const Slideshow = () => {
                     <br />
                     <span className=" text-xl">{slider.titleDown}</span>
                   </span>
-                  <GhostButton  inverted={true}>Explore</GhostButton>
+                  <GhostButton inverted={true}>Explore</GhostButton>
                 </div>
               </Link>
             </SwiperSlide>
