@@ -11,7 +11,7 @@ import zeapApiSlice from "../../../../redux/services/zeapApi.slice";
 import PostComment from "@/components/Post/PostComment";
 import CommentForm from "@/components/Post/CommentForm";
 import Author from "@/components/Post/Author";
-import { checkIfHtml } from "@/utils/helper";
+import { checkIfHtml, correctULTagFromQuill } from "@/utils/helper";
 import SectionBlogHero from "./SectionBlogHero";
 import SimilarPosts from "./SimilarPosts";
 
@@ -28,7 +28,7 @@ const PostDetail = ({ post }: { post: BlogPostInterface }) => {
   useEffect(() => {
     if (descriptionHtmlRef.current) {
       const parser = new DOMParser();
-      const doc = parser.parseFromString(post.content, "text/html");
+      const doc = parser.parseFromString(correctULTagFromQuill(post.content), "text/html");
       descriptionHtmlRef.current.innerHTML = doc.body.innerHTML;
     }
   }, [post.content]);

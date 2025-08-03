@@ -9,9 +9,9 @@ type Props = {
 
 // "Discover affordable and fashionable men's and women's clothing online at Haru Fashion. Free Returns ✓ 1000+ New Arrivals Dropped Daily."
 const defaultDesc =
-  "Haru Fashion e-commerce developed with Next.JS. Coded with 🖤 by Sat Naing (satnaing.dev).";
+  "Zeap Blog - We discuss fashion, lifestyle, entertainment, and more. Discover the latest trends and ideas in our blog posts.";
 const defaultKeywords =
-  "Haru Fashion, Online Shop, E-commerce, Sat Naing, NextJS";
+  "fashion, lifestyle, entertainment, blog, trends, ideas, Zeap Blog, Haru Fashion";
 
 const AppHeader: React.FC<Props> = ({
   title = "Haru Fashion",
